@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sivutnopeasti.fi | Ammattimaiset verkkosivut yritykselle</title>
+    <meta name="description" content="Laadukkaat verkkosivut nopeasti ja edullisesti. Erityisosaamista kampaamoille, kauneushoitoloille ja palveluyrityksille. Hinta alkaen 150€.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e5bb5;
+            --primary-light: #3a7bd5;
+            --primary-dark: #0d3a7a;
+            --accent: #00c6ff;
+            --text: #1a1a2e;
+            --text-light: #4a5568;
+            --bg: #fafbfc;
+            --bg-warm: #f0f4f8;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            background: linear-gradient(135deg, #1e5bb5 0%, #00c6ff 50%, #1e5bb5 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            transform: translateY(-1px);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .hero {
+            margin-top: 80px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-warm) 0%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            opacity: 0.05;
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1.125rem 2.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+
+        .hero-cta:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(30, 91, 181, 0.25);
+        }
+
+        .hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 2px;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .device-showcase {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 25px 60px rgba(30, 91, 181, 0.12);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .device-header {
+            background: #f5f5f5;
+            padding: 0.75rem 1rem;
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .device-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d1d1d1;
+        }
+
+        .device-content {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fc 100%);
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .mock-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(30, 91, 181, 0.08);
+            border-left: 4px solid var(--primary);
+        }
+
+        .mock-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .mock-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .trust-bar {
+            background: white;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 2.5rem 0;
+        }
+
+        .trust-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .trust-item strong {
+            display: block;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.25rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Animaatio-tyylit */
+        .process-animation {
+            background: var(--bg-warm);
+            padding: 4rem 0;
+        }
+
+        .animation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .animation-stage {
+            position: relative;
+            height: 320px;
+            background: linear-gradient(135deg, #fafbfc 0%, #f0f4f8 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: inset 0 2px 10px rgba(30, 91, 181, 0.03);
+        }
+
+        .steps-container {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            z-index: 10;
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.3;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-item.active {
+            opacity: 1;
+        }
+
+        .step-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #999;
+            font-size: 0.85rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .step-item.active .step-circle {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(30, 91, 181, 0.3);
+        }
+
+        .step-line {
+            position: absolute;
+            top: 50%;
+            left: 45px;
+            width: 60px;
+            height: 2px;
+            background: #e2e8f0;
+            transform: translateY(-50%);
+            transition: all 0.4s ease;
+        }
+
+        .step-item.active .step-line {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+
+        .step-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #666;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .step-item.active .step-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .content-wrapper {
+            position: absolute;
+            top: 85px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene-content {
+            position: absolute;
+            width: 100%;
+            max-width: 500px;
+            padding: 0 1.5rem;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+
+        .scene-content.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .scene-content.exit {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.95);
+        }
+
+        .form-visual {
+            background: white;
+            border-radius: 8px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.06);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            flex: 1;
+            height: 30px;
+            background: #f0f4f8;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-styles {
+            display: flex;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .style-pill {
+            padding: 6px 12px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            color: #666;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: scale(0.8);
+            opacity: 0;
+        }
+
+        .scene-content.active .style-pill {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .scene-content.active .style-pill:nth-child(1) { transition-delay: 0.1s; }
+        .scene-content.active .style-pill:nth-child(2) { 
+            transition-delay: 0.2s; 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; 
+            border-color: var(--primary); 
+        }
+        .scene-content.active .style-pill:nth-child(3) { transition-delay: 0.3s; }
+
+        .submit-line {
+            height: 34px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 4px;
+            margin-top: 12px;
+            transform: scaleX(0.9);
+            opacity: 0;
+            transition: all 0.3s ease 0.25s;
+        }
+
+        .scene-content.active .submit-line {
+            transform: scaleX(1);
+            opacity: 1;
+        }
+
+        .creation-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .conversation-bubbles {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            max-width: 340px;
+        }
+
+        .bubble {
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 0.8rem;
+            max-width: 85%;
+            transform: translateX(-15px);
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .scene-content.active .bubble {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .bubble.client {
+            background: white;
+            color: #4a4a4a;
+            align-self: flex-start;
+            border-bottom-left-radius: 3px;
+            box-shadow: 0 2px 8px rgba(30, 91, 181, 0.06);
+        }
+
+        .scene-content.active .bubble.client { transition-delay: 0.15s; }
+
+        .bubble.expert {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 3px;
+            box-shadow: 0 3px 12px rgba(30, 91, 181, 0.2);
+        }
+
+        .scene-content.active .bubble.expert { transition-delay: 0.35s; }
+
+        .creation-status {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: #666;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.3s ease;
+        }
+
+        .scene-content.active .status-indicator {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scene-content.active .status-indicator:nth-child(1) { transition-delay: 0.5s; }
+        .scene-content.active .status-indicator:nth-child(2) { transition-delay: 0.65s; }
+        .scene-content.active .status-indicator:nth-child(3) { transition-delay: 0.8s; }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #e2e8f0;
+        }
+
+        .status-dot.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        .refinement-visual {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .refinement-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .refine-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(30, 91, 181, 0.04);
+            font-size: 0.8rem;
+            color: #4a4a4a;
+            transform: translateX(-15px);
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .scene-content.active .refine-item {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .scene-content.active .refine-item:nth-child(1) { transition-delay: 0.15s; }
+        .scene-content.active .refine-item:nth-child(2) { transition-delay: 0.3s; }
+        .scene-content.active .refine-item:nth-child(3) { transition-delay: 0.45s; }
+
+        .refine-icon {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fc 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .quality-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.06);
+            min-width: 150px;
+        }
+
+        .quality-header {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .quality-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 0;
+            font-size: 0.75rem;
+            color: #666;
+            border-bottom: 1px solid #f0f4f8;
+            opacity: 0;
+            transform: translateX(8px);
+            transition: all 0.25s ease;
+        }
+
+        .scene-content.active .quality-row {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scene-content.active .quality-row:nth-child(2) { transition-delay: 0.6s; }
+        .scene-content.active .quality-row:nth-child(3) { transition-delay: 0.75s; }
+        .scene-content.active .quality-row:nth-child(4) { transition-delay: 0.9s; }
+        .scene-content.active .quality-row:nth-child(5) { transition-delay: 1.05s; }
+
+        .quality-row:last-child {
+            border-bottom: none;
+        }
+
+        .check-mark {
+            width: 14px;
+            height: 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.55rem;
+            color: white;
+            transition: all 0.2s ease;
+        }
+
+        .check-mark.checked {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-color: var(--primary);
+        }
+
+        .launch-visual {
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            position: relative;
+            transform: scale(0);
+            transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 25px rgba(30, 91, 181, 0.3);
+        }
+
+        .scene-content.active .success-icon {
+            transform: scale(1);
+        }
+
+        .success-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 25px;
+            height: 12px;
+            border: 3px solid white;
+            border-top: none;
+            border-left: none;
+            margin-top: -3px;
+        }
+
+        .launch-text {
+            background: white;
+            padding: 1.25rem 1.75rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.08);
+            display: inline-block;
+            transform: translateY(15px);
+            opacity: 0;
+            transition: all 0.4s ease 0.2s;
+        }
+
+        .scene-content.active .launch-text {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .launch-title {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .launch-sub {
+            color: #4a4a4a;
+            font-size: 0.85rem;
+        }
+
+        .cta-highlight {
+            margin-top: 1.25rem;
+            padding: 0.875rem 1.25rem;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fc 100%);
+            border-radius: 6px;
+            border-left: 3px solid var(--primary);
+            transform: translateX(-8px);
+            opacity: 0;
+            transition: all 0.35s ease 0.4s;
+        }
+
+        .scene-content.active .cta-highlight {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .cta-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .animation-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .animation-cta-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .animation-cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+
+        .animation-cta-button:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 91, 181, 0.25);
+        }
+
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.3s;
+            background: var(--bg);
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(30, 91, 181, 0.1);
+        }
+
+        .feature-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.5;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .audience {
+            background: var(--bg-warm);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .audience-card {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .audience-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(30, 91, 181, 0.08);
+        }
+
+        .audience-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fc 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .audience-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .audience-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .author-info strong {
+            display: block;
+            color: var(--text);
+        }
+
+        .author-info span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.7);
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #fff 0%, #a0c4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-secondary {
+                display: block;
+                margin: 1rem 0 0 0;
+            }
+
+            .features-grid,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .refinement-visual {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .steps-container {
+                gap: 30px;
+            }
+
+            .step-line {
+                width: 40px;
+                left: 40px;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Sivutnopeasti.fi</a>
+            <ul class="nav-links">
+                <li><a href="#palvelut">Palvelut</a></li>
+                <li><a href="#meista">Meistä</a></li>
+                <li><a href="#yhteys" class="nav-cta">Ota yhteyttä</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Ammattimaiset verkkosivut <span>nopeasti</span></h1>
+                <p class="hero-subtitle">Laadukkaat kotisivut yrityksellesi ilman turhia kustannuksia. Erityisosaamista kampaamoille, kauneushoitoloille ja palvelualan yrityksille.</p>
+                <div>
+                    <a href="#yhteys" class="hero-cta">Pyydä tarjous</a>
+                    <a href="#palvelut" class="hero-secondary">Tutustu palveluihin</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="device-showcase">
+                    <div class="device-header">
+                        <div class="device-dot"></div>
+                        <div class="device-dot"></div>
+                        <div class="device-dot"></div>
+                    </div>
+                    <div class="device-content">
+                        <div class="mock-card">
+                            <h4>Yrityksesi verkkosivut</h4>
+                            <p>Ammattimainen ilme, joka tuo asiakkaita</p>
+                        </div>
+                        <div class="mock-card">
+                            <h4>Mobiilioptimoitu</h4>
+                            <p>Toimii täydellisesti kaikilla laitteilla</p>
+                        </div>
+                        <div class="mock-card">
+                            <h4>Hakukoneoptimoitu</h4>
+                            <p>Asiakkaasi löytävät sinut Googlesta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-bar">
+        <div class="trust-content">
+            <div class="trust-item">
+                <strong>150€</strong>
+                alkaen
+            </div>
+            <div class="trust-item">
+                <strong>3-5 pv</strong>
+                toimitusaika
+            </div>
+            <div class="trust-item">
+                <strong>100%</strong>
+                suomalainen
+            </div>
+            <div class="trust-item">
+                <strong>0€</strong>
+                ylläpito ensimmäinen kuukausi
+            </div>
+        </div>
+    </div>
+
+    <section class="process-animation">
+        <div class="animation-container">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2>Näin syntyvät sivusi</h2>
+                <p>Asiantuntijan tuki alusta loppuun</p>
+            </div>
+            
+            <div class="animation-stage" id="stage">
+                <div class="steps-container">
+                    <div class="step-item active" id="step1">
+                        <div class="step-circle">1</div>
+                        <div class="step-line"></div>
+                        <div class="step-label">Tilaus</div>
+                    </div>
+                    <div class="step-item" id="step2">
+                        <div class="step-circle">2</div>
+                        <div class="step-line"></div>
+                        <div class="step-label">Suunnittelu</div>
+                    </div>
+                    <div class="step-item" id="step3">
+                        <div class="step-circle">3</div>
+                        <div class="step-line"></div>
+                        <div class="step-label">Viilaus</div>
+                    </div>
+                    <div class="step-item" id="step4">
+                        <div class="step-circle">4</div>
+                        <div class="step-label">Valmis</div>
+                    </div>
+                </div>
+
+                <div class="content-wrapper">
+                    <div class="scene-content active" id="scene1">
+                        <div class="form-visual">
+                            <div class="form-row">
+                                <div class="form-input"></div>
+                                <div class="form-input"></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-input"></div>
+                                <div class="form-input"></div>
+                            </div>
+                            <div class="form-styles">
+                                <div class="style-pill">Klassinen</div>
+                                <div class="style-pill">Elegantti</div>
+                                <div class="style-pill">Moderni</div>
+                            </div>
+                            <div class="submit-line"></div>
+                        </div>
+                    </div>
+
+                    <div class="scene-content" id="scene2">
+                        <div class="creation-visual">
+                            <div class="conversation-bubbles">
+                                <div class="bubble client">Hei! Haluan keskustella sivujen ilmeestä.</div>
+                                <div class="bubble expert">Totta kai! Suunnitellaan yhdessä täydelliset sivut.</div>
+                            </div>
+                            <div class="creation-status">
+                                <div class="status-indicator">
+                                    <div class="status-dot active"></div>
+                                    <span>Suunnittelu</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <div class="status-dot"></div>
+                                    <span>Toteutus</span>
+                                </div>
+                                <div class="status-indicator">
+                                    <div class="status-dot"></div>
+                                    <span>Viimeistely</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scene-content" id="scene3">
+                        <div class="refinement-visual">
+                            <div class="refinement-left">
+                                <div class="refine-item">
+                                    <div class="refine-icon">V</div>
+                                    <span>Värimaailma viilattu</span>
+                                </div>
+                                <div class="refine-item">
+                                    <div class="refine-icon">T</div>
+                                    <span>Tekstit optimoitu</span>
+                                </div>
+                                <div class="refine-item">
+                                    <div class="refine-icon">K</div>
+                                    <span>Kuvat skaalattu</span>
+                                </div>
+                            </div>
+                            <div class="quality-card">
+                                <div class="quality-header">Tarkistus</div>
+                                <div class="quality-row">
+                                    <div class="check-mark"></div>
+                                    <span>Mobiili</span>
+                                </div>
+                                <div class="quality-row">
+                                    <div class="check-mark"></div>
+                                    <span>Nopeus</span>
+                                </div>
+                                <div class="quality-row">
+                                    <div class="check-mark"></div>
+                                    <span>SEO</span>
+                                </div>
+                                <div class="quality-row">
+                                    <div class="check-mark"></div>
+                                    <span>Yhteystiedot</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scene-content" id="scene4">
+                        <div class="launch-visual">
+                            <div class="success-icon"></div>
+                            <div class="launch-text">
+                                <div class="launch-title">Sivusi ovat valmiit!</div>
+                                <div class="launch-sub">Julkaisu onnistui</div>
+                            </div>
+                            <div class="cta-highlight">
+                                <div class="cta-text">Klikkaa lähetä, ja saat sivut 48h aikana nähtäväksesi</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="animation-cta">
+                <p class="animation-cta-text">Täytä tilauslomake ja vastaanota sivut esikatseltavaksi ilmaiseksi</p>
+                <a href="#yhteys" class="animation-cta-button">Täytä tilauslomake</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="palvelut">
+        <div class="container">
+            <div class="section-header">
+                <h2>Miksi valita meidät?</h2>
+                <p>Teemme verkkosivujen hankinnasta vaivatonta ja riskitöntä. Maksat vasta, kun olet tyytyväinen lopputulokseen.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <h3>Laadukas design</h3>
+                    <p>Moderni ja ammattimainen ulkoasu, joka erottuu joukosta ja herättää luottamusta potentiaalissa asiakkaissa.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <h3>Mobiiliystävällinen</h3>
+                    <p>Yli 70% verkkoliikenteestä tapahtuu mobiililaitteilla. Sivusi toimivat täydellisesti puhelimilla ja tableteilla.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">03</div>
+                    <h3>Hakukoneoptimointi</h3>
+                    <p>Rakennamme sivut niin, että asiakkaasi löytävät sinut helposti Googlesta ja muista hakukoneista.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="audience" id="meista">
+        <div class="container">
+            <div class="section-header">
+                <h2>Erityisosaamista näille aloille</h2>
+                <p>Tunnemme palvelualan erityispiirteet ja rakennamme sivut, jotka puhuttelevat juuri sinun kohderyhmääsi.</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">K</div>
+                    <h3>Kampaamot</h3>
+                    <p>Ajanvaraus, hinnasto, työnäytteet</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">H</div>
+                    <h3>Kauneushoitolat</h3>
+                    <p>Hoidot, tuotteet, varauskalenteri</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">N</div>
+                    <h3>Kynsiteknikot</h3>
+                    <p>Galleria, palvelut, yhteystiedot</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">M</div>
+                    <h3>Muut yritykset</h3>
+                    <p>Kysy tarjousta omalle alallesi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Asiakkaamme kertovat</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Sivutnopeasti loi meille täydelliset sivut. Prosessi oli sujuva ja lopputulos ylitti odotukset. Hintakin oli kohdillaan."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <strong>Sari M.</strong>
+                            <span>Kampaamo Sari, Helsinki</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Sain ammattimaiset sivut, jotka tuovat uusia asiakkaita jatkuvasti. Suosittelen lämpimästi kaikille yrittäjille."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">L</div>
+                        <div class="author-info">
+                            <strong>Liisa K.</strong>
+                            <span>Kauneushoitola Lumous, Tampere</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="footer-logo">Sivutnopeasti.fi</a>
+            <div class="footer-links">
+                <a href="#palvelut">Palvelut</a>
+                <a href="#meista">Meistä</a>
+                <a href="#yhteys">Ota yhteyttä</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentStep = 0;
+        const totalSteps = 4;
+        const stepDuration = 3000;
+        let animationInterval;
+
+        const scenes = ['scene1', 'scene2', 'scene3', 'scene4'];
+        const stepItems = ['step1', 'step2', 'step3', 'step4'];
+
+        function updateScene(step) {
+            stepItems.forEach((item, index) => {
+                const el = document.getElementById(item);
+                if (index === step) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+
+            scenes.forEach((scene, index) => {
+                const el = document.getElementById(scene);
+                if (index === step) {
+                    el.classList.remove('exit');
+                    el.classList.add('active');
+                } else if (index < step) {
+                    el.classList.remove('active');
+                    el.classList.add('exit');
+                } else {
+                    el.classList.remove('active', 'exit');
+                }
+            });
+
+            if (step === 2) {
+                setTimeout(() => {
+                    const checks = document.querySelectorAll('#scene3 .check-mark');
+                    checks.forEach((check, i) => {
+                        setTimeout(() => {
+                            check.classList.add('checked');
+                        }, i * 150);
+                    });
+                }, 600);
+            }
+
+            if (step === 0) {
+                document.querySelectorAll('.check-mark').forEach(check => {
+                    check.classList.remove('checked');
+                });
+            }
+        }
+
+        function nextStep() {
+            currentStep = (currentStep + 1) % totalSteps;
+            updateScene(currentStep);
+        }
+
+        function startAnimation() {
+            if (animationInterval) clearInterval(animationInterval);
+            animationInterval = setInterval(nextStep, stepDuration);
+        }
+
+        updateScene(0);
+        startAnimation();
+
+        const stage = document.getElementById('stage');
+        stage.addEventListener('mouseenter', () => {
+            clearInterval(animationInterval);
+        });
+        
+        stage.addEventListener('mouseleave', () => {
+            startAnimation();
+        });
+    </script>
+
+</body>
+</html>
