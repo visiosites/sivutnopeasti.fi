@@ -4,1439 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sivutnopeasti.fi | Ammattimaiset verkkosivut yritykselle</title>
-    <meta name="description" content="Laadukkaat verkkosivut nopeasti ja edullisesti. Erityisosaamista kampaamoille, kauneushoitoloille ja palveluyrityksille. Hinta alkaen 150€.">
+    <meta name="description" content="Laadukkaat verkkosivut nopeasti ja edullisesti. Erityisosaamista kampaamoille, kauneushoitoloille ja palveluyrityksille. Hinta alkaen 169€.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1e5bb5;
-            --primary-light: #3a7bd5;
-            --primary-dark: #0d3a7a;
-            --accent: #00c6ff;
-            --text: #1a1a2e;
-            --text-light: #4a5568;
-            --bg: #fafbfc;
-            --bg-warm: #f0f4f8;
-            --border: #e2e8f0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            background: var(--bg);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            text-decoration: none;
-            background: linear-gradient(135deg, #1e5bb5 0%, #00c6ff 50%, #1e5bb5 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 4s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% center; }
-            50% { background-position: 100% center; }
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transition: width 0.3s;
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white !important;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 700 !important;
-            transition: all 0.3s;
-        }
-
-        .nav-cta:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.3);
-        }
-
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 28px;
-            height: 22px;
-            cursor: pointer;
-            z-index: 1001;
-            background: none;
-            border: none;
-            padding: 0;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 100%;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 7px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -7px);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 70px;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--bg-warm) 0%, #fff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 55%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            opacity: 0.06;
-            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 3.2rem;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .hero-text h1 span {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-            line-height: 1.7;
-            max-width: 90%;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.25);
-        }
-
-        .hero-cta:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(30, 91, 181, 0.35);
-        }
-
-        .hero-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            padding: 1rem 1.5rem;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-
-        .hero-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .hero-visual {
-            position: relative;
-        }
-
-        .device-showcase {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 30px 70px rgba(30, 91, 181, 0.15);
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .device-header {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 1rem 1.25rem;
-            display: flex;
-            gap: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .device-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .device-dot:nth-child(1) { background: #ff5f57; }
-        .device-dot:nth-child(2) { background: #febc2e; }
-        .device-dot:nth-child(3) { background: #28c840; }
-
-        .device-content {
-            padding: 2rem;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fc 100%);
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .mock-card {
-            background: white;
-            padding: 1.25rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.08);
-            border-left: 4px solid var(--primary);
-            transition: transform 0.3s;
-        }
-
-        .mock-card:hover {
-            transform: translateX(5px);
-        }
-
-        .mock-card h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary);
-            margin-bottom: 0.4rem;
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .mock-card p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        /* Trust Bar */
-        .trust-bar {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            padding: 3rem 0;
-            position: relative;
-        }
-
-        .trust-bar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .trust-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .trust-item {
-            text-align: center;
-            color: rgba(255,255,255,0.9);
-            font-size: 0.9rem;
-        }
-
-        .trust-item strong {
-            display: block;
-            font-size: 2rem;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            margin-bottom: 0.25rem;
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--text);
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        /* Process Animation */
-        .process-animation {
-            background: var(--bg-warm);
-            padding: 4rem 0;
-        }
-
-        .animation-container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .animation-stage {
-            position: relative;
-            height: 340px;
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(30, 91, 181, 0.1);
-            border: 1px solid var(--border);
-        }
-
-        .steps-container {
-            position: absolute;
-            top: 25px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            z-index: 10;
-        }
-
-        .step-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            opacity: 0.35;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .step-item.active {
-            opacity: 1;
-        }
-
-        .step-circle {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: white;
-            border: 3px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            color: #999;
-            font-size: 0.9rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .step-item.active .step-circle {
-            border-color: var(--primary);
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(30, 91, 181, 0.35);
-        }
-
-        .step-line {
-            position: absolute;
-            top: 50%;
-            left: 48px;
-            width: 55px;
-            height: 3px;
-            background: #e2e8f0;
-            transform: translateY(-50%);
-            transition: all 0.4s ease;
-        }
-
-        .step-item.active .step-line {
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-        }
-
-        .step-label {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: #666;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .step-item.active .step-label {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .content-wrapper {
-            position: absolute;
-            top: 95px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .scene-content {
-            position: absolute;
-            width: 100%;
-            max-width: 500px;
-            padding: 0 1.5rem;
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            pointer-events: none;
-        }
-
-        .scene-content.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            pointer-events: auto;
-        }
-
-        .scene-content.exit {
-            opacity: 0;
-            transform: translateY(-20px) scale(0.95);
-        }
-
-        .form-visual {
-            background: var(--bg-warm);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.03);
-        }
-
-        .form-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .form-input {
-            flex: 1;
-            height: 36px;
-            background: white;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-        }
-
-        .form-styles {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .style-pill {
-            padding: 8px 16px;
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            color: #666;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            transform: scale(0.8);
-            opacity: 0;
-        }
-
-        .scene-content.active .style-pill {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .scene-content.active .style-pill:nth-child(1) { transition-delay: 0.1s; }
-        .scene-content.active .style-pill:nth-child(2) { 
-            transition-delay: 0.2s; 
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white; 
-            border-color: var(--primary); 
-        }
-        .scene-content.active .style-pill:nth-child(3) { transition-delay: 0.3s; }
-
-        .submit-line {
-            height: 42px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 8px;
-            margin-top: 15px;
-            transform: scaleX(0.9);
-            opacity: 0;
-            transition: all 0.3s ease 0.25s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .scene-content.active .submit-line {
-            transform: scaleX(1);
-            opacity: 1;
-        }
-
-        .creation-visual {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .conversation-bubbles {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-            max-width: 380px;
-        }
-
-        .bubble {
-            padding: 12px 18px;
-            border-radius: 18px;
-            font-size: 0.9rem;
-            max-width: 85%;
-            transform: translateX(-15px);
-            opacity: 0;
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .scene-content.active .bubble {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .bubble.client {
-            background: var(--bg-warm);
-            color: var(--text);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-
-        .scene-content.active .bubble.client { transition-delay: 0.15s; }
-
-        .bubble.expert {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.25);
-        }
-
-        .scene-content.active .bubble.expert { transition-delay: 0.35s; }
-
-        .creation-status {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.8rem;
-            color: #666;
-            opacity: 0;
-            transform: translateY(8px);
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        .scene-content.active .status-indicator {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scene-content.active .status-indicator:nth-child(1) { transition-delay: 0.5s; }
-        .scene-content.active .status-indicator:nth-child(2) { transition-delay: 0.65s; }
-        .scene-content.active .status-indicator:nth-child(3) { transition-delay: 0.8s; }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #e2e8f0;
-        }
-
-        .status-dot.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.7; }
-        }
-
-        .refinement-visual {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .refinement-left {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .refine-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: var(--bg-warm);
-            border-radius: 10px;
-            font-size: 0.9rem;
-            color: var(--text);
-            transform: translateX(-15px);
-            opacity: 0;
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        .scene-content.active .refine-item {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .scene-content.active .refine-item:nth-child(1) { transition-delay: 0.15s; }
-        .scene-content.active .refine-item:nth-child(2) { transition-delay: 0.3s; }
-        .scene-content.active .refine-item:nth-child(3) { transition-delay: 0.45s; }
-
-        .refine-icon {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 800;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .quality-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.25rem;
-            box-shadow: 0 4px 20px rgba(30, 91, 181, 0.08);
-            min-width: 170px;
-        }
-
-        .quality-header {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .quality-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 0;
-            font-size: 0.85rem;
-            color: #666;
-            border-bottom: 1px solid var(--border);
-            opacity: 0;
-            transform: translateX(8px);
-            transition: all 0.25s ease;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        .scene-content.active .quality-row {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scene-content.active .quality-row:nth-child(2) { transition-delay: 0.6s; }
-        .scene-content.active .quality-row:nth-child(3) { transition-delay: 0.75s; }
-        .scene-content.active .quality-row:nth-child(4) { transition-delay: 0.9s; }
-        .scene-content.active .quality-row:nth-child(5) { transition-delay: 1.05s; }
-
-        .quality-row:last-child {
-            border-bottom: none;
-        }
-
-        .check-mark {
-            width: 18px;
-            height: 18px;
-            border: 2px solid var(--border);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.65rem;
-            color: white;
-            transition: all 0.2s ease;
-        }
-
-        .check-mark.checked {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-color: var(--primary);
-        }
-
-        .launch-visual {
-            text-align: center;
-        }
-
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            transform: scale(0);
-            transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 10px 30px rgba(30, 91, 181, 0.35);
-        }
-
-        .scene-content.active .success-icon {
-            transform: scale(1);
-        }
-
-        .success-icon::after {
-            content: '';
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-            width: 28px;
-            height: 14px;
-            border: 4px solid white;
-            border-top: none;
-            border-left: none;
-        }
-
-        .launch-text {
-            background: white;
-            padding: 1.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 6px 25px rgba(30, 91, 181, 0.1);
-            display: inline-block;
-            transform: translateY(15px);
-            opacity: 0;
-            transition: all 0.4s ease 0.2s;
-        }
-
-        .scene-content.active .launch-text {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .launch-title {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 0.4rem;
-        }
-
-        .launch-sub {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .cta-highlight {
-            margin-top: 1.5rem;
-            padding: 1rem 1.5rem;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fc 100%);
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
-            transform: translateX(-8px);
-            opacity: 0;
-            transition: all 0.35s ease 0.4s;
-        }
-
-        .scene-content.active .cta-highlight {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .cta-text {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .animation-cta {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .animation-cta-text {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 1.25rem;
-        }
-
-        .animation-cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            border-radius: 8px;
-            transition: all 0.3s;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.25);
-        }
-
-        .animation-cta-button:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(30, 91, 181, 0.35);
-        }
-
-        /* Features Section */
-        .features {
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .feature-card {
-            padding: 2.5rem 2rem;
-            border: 2px solid var(--border);
-            border-radius: 16px;
-            transition: all 0.3s;
-            background: white;
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(30, 91, 181, 0.12);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fc 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .feature-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Audience Section */
-        .audience {
-            background: var(--bg-warm);
-        }
-
-        .audience-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .audience-card {
-            background: white;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            border-radius: 16px;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .audience-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-6px);
-            box-shadow: 0 15px 40px rgba(30, 91, 181, 0.1);
-        }
-
-        .audience-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.25rem;
-            font-size: 1.75rem;
-            color: white;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            box-shadow: 0 8px 20px rgba(30, 91, 181, 0.25);
-        }
-
-        .audience-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .audience-card p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background: white;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: var(--bg-warm);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border-left: 5px solid var(--primary);
-            transition: all 0.3s;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(30, 91, 181, 0.08);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.25);
-        }
-
-        .author-info strong {
-            display: block;
-            color: var(--text);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-
-        .author-info span {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, var(--bg-warm) 0%, #fff 100%);
-            padding: 5rem 0;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(30, 91, 181, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            color: var(--text);
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(30, 91, 181, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1.25rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(30, 91, 181, 0.25);
-        }
-
-        .submit-btn:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(30, 91, 181, 0.35);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text);
-            color: rgba(255,255,255,0.7);
-            padding: 3rem 0;
-            font-size: 0.9rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            background: linear-gradient(135deg, #fff 0%, #a0c4ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
-            text-decoration: none;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 3rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtitle {
-                max-width: 100%;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .features-grid,
-            .audience-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .refinement-visual {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .steps-container {
-                gap: 25px;
-            }
-
-            .step-line {
-                width: 30px;
-                left: 42px;
-            }
-
-            .step-circle {
-                width: 36px;
-                height: 36px;
-                font-size: 0.8rem;
-            }
-
-            .step-label {
-                font-size: 0.6rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 300px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                justify-content: flex-start;
-                padding-top: 5rem;
-                padding-left: 2rem;
-                padding-right: 2rem;
-                gap: 1.5rem;
-                transition: right 0.3s ease;
-                box-shadow: -10px 0 40px rgba(0,0,0,0.1);
-                z-index: 999;
-            }
-
-            .nav-menu.active {
-                right: 0;
-            }
-
-            .nav-menu a {
-                font-size: 1.1rem;
-                width: 100%;
-                padding: 0.75rem 0;
-            }
-
-            .nav-cta {
-                text-align: center;
-                margin-top: 1rem;
-            }
-
-            .hero {
-                margin-top: 60px;
-            }
-
-            .hero-text h1 {
-                font-size: 1.9rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-cta,
-            .hero-secondary {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .trust-content {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .trust-item strong {
-                font-size: 1.75rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .animation-stage {
-                height: 380px;
-            }
-
-            .steps-container {
-                gap: 15px;
-            }
-
-            .step-line {
-                display: none;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 1.5rem;
-                text-align: center;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Overlay for mobile menu */
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 998;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .menu-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-    </style>
-<base target="_blank">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <nav>
-            <a href="#" class="logo">Sivutnopeasti.fi</a>
+            <a href="https://sivutnopeasti.fi" class="logo">SIVUTNOPEASTI.FI</a>
             <button class="menu-toggle" id="menuToggle" aria-label="Avaa valikko">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#prosessi">Prosessi</a></li>
-                <li><a href="#palvelut">Palvelut</a></li>
-                <li><a href="#meista">Meistä</a></li>
-                <li><a href="#yhteys" class="nav-cta">Ota yhteyttä</a></li>
+                <li><a href="#prosessi">Miten tilaan sivut?</a></li>
+                <li><a href="#hinnoittelu">Hinnoittelu</a></li>
+                <li><a href="#arvostelut">Arvostelut</a></li>
+                <li><a href="#yhteys">Yhteystiedot</a></li>
+                <li><a href="#yhteys" class="nav-cta">Tilaa sivut ilmaiseksi</a></li>
             </ul>
         </nav>
         <div class="menu-overlay" id="menuOverlay"></div>
@@ -1447,9 +36,13 @@
             <div class="hero-text">
                 <h1>Ammattimaiset verkkosivut <span>nopeasti</span></h1>
                 <p class="hero-subtitle">Laadukkaat kotisivut yrityksellesi ilman turhia kustannuksia. Erityisosaamista kampaamoille, kauneushoitoloille ja palvelualan yrityksille.</p>
+                <div class="hero-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-text">5,0/5 Google-arvostelut</span>
+                </div>
                 <div class="hero-buttons">
-                    <a href="#yhteys" class="hero-cta">Pyydä tarjous</a>
-                    <a href="#palvelut" class="hero-secondary">Tutustu palveluihin</a>
+                    <a href="#yhteys" class="hero-cta">Näe sivut ennen maksua</a>
+                    <a href="#prosessi" class="hero-secondary">Miten tilaan sivut?</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -1481,7 +74,7 @@
     <div class="trust-bar">
         <div class="trust-content">
             <div class="trust-item">
-                <strong>150€</strong>
+                <strong>169€</strong>
                 alkaen
             </div>
             <div class="trust-item">
@@ -1502,28 +95,28 @@
     <section class="process-animation" id="prosessi">
         <div class="animation-container">
             <div class="section-header" style="margin-bottom: 2rem;">
-                <h2>Näin syntyvät sivusi</h2>
-                <p>Asiantuntijan tuki alusta loppuun</p>
+                <h2>Miten tilaan sivut?</h2>
+                <p>Näet valmiin sivuston ennen ostopäätöstä. Maksat vasta, kun olet tyytyväinen.</p>
             </div>
             
             <div class="animation-stage" id="stage">
                 <div class="steps-container">
-                    <div class="step-item active" id="step1">
+                    <div class="step-item active" data-step="0" id="step1">
                         <div class="step-circle">1</div>
                         <div class="step-line"></div>
                         <div class="step-label">Tilaus</div>
                     </div>
-                    <div class="step-item" id="step2">
+                    <div class="step-item" data-step="1" id="step2">
                         <div class="step-circle">2</div>
                         <div class="step-line"></div>
                         <div class="step-label">Suunnittelu</div>
                     </div>
-                    <div class="step-item" id="step3">
+                    <div class="step-item" data-step="2" id="step3">
                         <div class="step-circle">3</div>
                         <div class="step-line"></div>
                         <div class="step-label">Viilaus</div>
                     </div>
-                    <div class="step-item" id="step4">
+                    <div class="step-item" data-step="3" id="step4">
                         <div class="step-circle">4</div>
                         <div class="step-label">Valmis</div>
                     </div>
@@ -1542,7 +135,7 @@
                             </div>
                             <div class="form-styles">
                                 <div class="style-pill">Klassinen</div>
-                                <div class="style-pill">Elegantti</div>
+                                <div class="style-pill active">Elegantti</div>
                                 <div class="style-pill">Moderni</div>
                             </div>
                             <div class="submit-line">Lähetä tilaus</div>
@@ -1591,19 +184,19 @@
                             <div class="quality-card">
                                 <div class="quality-header">Tarkistus</div>
                                 <div class="quality-row">
-                                    <div class="check-mark"></div>
+                                    <div class="check-mark checked">✓</div>
                                     <span>Mobiili</span>
                                 </div>
                                 <div class="quality-row">
-                                    <div class="check-mark"></div>
+                                    <div class="check-mark checked">✓</div>
                                     <span>Nopeus</span>
                                 </div>
                                 <div class="quality-row">
-                                    <div class="check-mark"></div>
+                                    <div class="check-mark checked">✓</div>
                                     <span>SEO</span>
                                 </div>
                                 <div class="quality-row">
-                                    <div class="check-mark"></div>
+                                    <div class="check-mark checked">✓</div>
                                     <span>Yhteystiedot</span>
                                 </div>
                             </div>
@@ -1615,10 +208,9 @@
                             <div class="success-icon"></div>
                             <div class="launch-text">
                                 <div class="launch-title">Sivusi ovat valmiit!</div>
-                                <div class="launch-sub">Julkaisu onnistui</div>
                             </div>
                             <div class="cta-highlight">
-                                <div class="cta-text">Klikkaa lähetä, ja saat sivut 48h aikana nähtäväksesi</div>
+                                <div class="cta-text">Saat sivut 48h aikana nähtäväksi.</div>
                             </div>
                         </div>
                     </div>
@@ -1632,6 +224,34 @@
         </div>
     </section>
 
+    <section class="pricing" id="hinnoittelu">
+        <div class="container">
+            <div class="section-header">
+                <h2>100% Läpinäkyvä hinnoittelu</h2>
+                <p>Ei piilokuluja – maksat vain siitä, mitä tarvitset</p>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Verkkosivupaketti</h3>
+                    <p>Täydellinen ratkaisu pienyrityksille</p>
+                </div>
+                <div class="price-main">169€</div>
+                <div class="price-sub">+ 8,90€ <span>/ kk</span></div>
+                <div class="pricing-features">
+                    <div class="pricing-feature">Ammattimainen verkkosivu</div>
+                    <div class="pricing-feature">Domain (.fi tai .com)</div>
+                    <div class="pricing-feature">Hosting & turvallinen palvelin</div>
+                    <div class="pricing-feature">1 yrityssähköposti</div>
+                    <div class="pricing-feature">Mobiilioptimointi</div>
+                    <div class="pricing-feature">Hakukoneoptimointi</div>
+                    <div class="pricing-feature">Konversio-optimointi (myynnin optimointi)</div>
+                    <div class="pricing-feature">Ilmainen esikatselu ennen maksua</div>
+                </div>
+                <a href="#yhteys" class="pricing-cta">Tilaa sivut ilmaiseksi</a>
+            </div>
+        </div>
+    </section>
+
     <section class="features" id="palvelut">
         <div class="container">
             <div class="section-header">
@@ -1640,17 +260,17 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">&#127912;</div>
-                    <h3>Laadukas design</h3>
-                    <p>Moderni ja ammattimainen ulkoasu, joka erottuu joukosta ja herättää luottamusta potentiaalissa asiakkaissa.</p>
+                    <div class="feature-icon">⚡</div>
+                    <h3>Salaman nopea lataus</h3>
+                    <p>Sivustosi on rakennettu staattisena HTML:nä, mikä takaa salamannopean latausajan ja paremman käyttökokemuksen.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#128241;</div>
+                    <div class="feature-icon">📱</div>
                     <h3>Mobiiliystävällinen</h3>
                     <p>Yli 70% verkkoliikenteestä tapahtuu mobiililaitteilla. Sivusi toimivat täydellisesti puhelimilla ja tableteilla.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#128269;</div>
+                    <div class="feature-icon">🔍</div>
                     <h3>Hakukoneoptimointi</h3>
                     <p>Rakennamme sivut niin, että asiakkaasi löytävät sinut helposti Googlesta ja muista hakukoneista.</p>
                 </div>
@@ -1689,30 +309,64 @@
         </div>
     </section>
 
-    <section class="testimonials">
+    <section class="testimonials" id="arvostelut">
         <div class="container">
             <div class="section-header">
                 <h2>Asiakkaamme kertovat</h2>
+                <p>⭐ 5,0/5 Google-arvostelut</p>
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Sivutnopeasti loi meille täydelliset sivut. Prosessi oli sujuva ja lopputulos ylitti odotukset. Hintakin oli kohdillaan."</p>
+                    <p class="testimonial-text">"Palvelu on tehokasta ja osaavaa. Olen tyytyväinen sivujen suunnitteluun, sekä yleisesti niiden toimivuuteen."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">S</div>
                         <div class="author-info">
-                            <strong>Sari M.</strong>
-                            <span>Kampaamo Sari, Helsinki</span>
+                            <strong>Joonas T.</strong>
+                            <span>Rakennusala, Uusimaa</span>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Sain ammattimaiset sivut, jotka tuovat uusia asiakkaita jatkuvasti. Suosittelen lämpimästi kaikille yrittäjille."</p>
+                    <p class="testimonial-text">"Yhteistyö Henrin kanssa sujui alusta asti mutkattomasti. Hän hoiti projektin erinomaisesti ja sai ajatuksistani ja ideoistani netti-sivujen osalta heti kiinni ja toteutti ne nopealla aikataululla. Suosittelen ehdottomasti!."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">L</div>
                         <div class="author-info">
-                            <strong>Liisa K.</strong>
-                            <span>Kauneushoitola Lumous, Tampere</span>
+                            <strong>Karoliina R.</strong>
+                            <span>Kauneushoitola, Maahantuonti</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="tiimi">
+        <div class="container">
+            <div class="section-header">
+                <h2>Olet osaavissa käsissä</h2>
+                <p>Suomalaista verkkosivuosaamista</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://secure.gravatar.com/avatar/d19c9ef4b6b5b884a7b254514b5847a05ae9afd87c6ee9357f5ac2feb5ac2154?s=96&d=mm&r=g" alt="Henri Arvela" class="team-avatar">
+                    <h3>Henri Arvela</h3>
+                    <div class="team-role">Verkkosivusto-asiantuntija</div>
+                    <p class="team-bio">Hei, olen Henri, verkkosivustojen kehittämisen, analysoinnin ja konversio-optimoinnin asiantuntija. Opiskelen markkinointia Tampereen yliopistossa.</p>
+                    <div class="team-contact">
+                        <a href="mailto:asiakkaat@sivutnopeasti.fi">📧 asiakkaat@sivutnopeasti.fi</a>
+                        <a href="tel:+358451954605">📱 +358 45 195 4605</a>
+                        <a href="https://wa.me/358451954605">💬 WhatsApp-viesti</a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 2rem;">G</div>
+                    <h3>Gabriel Mansnérus</h3>
+                    <div class="team-role">Asiakkuuspäällikkö</div>
+                    <p class="team-bio">Hei, olen Gabriel, monialayrittäjä. Vastaan asiakassuhteistamme ja varmistan, että saat juuri sinulle sopivat verkkosivut. Autan sinua koko prosessin ajan alusta loppuun.</p>
+                    <div class="team-contact">
+                        <a href="mailto:asiakkaat@sivutnopeasti.fi">📧 asiakkaat@sivutnopeasti.fi</a>
+                        <a href="tel:+3584578736248">📱 +358 45 787 36248</a>
+                        <a href="https://wa.me/3584578736248">💬 WhatsApp-viesti</a>
                     </div>
                 </div>
             </div>
@@ -1723,166 +377,77 @@
         <div class="container">
             <div class="section-header">
                 <h2>Ota yhteyttä</h2>
-                <p>Täytä lomake ja vastaanota ilmainen esikatselu sivuistasi 48 tunnin sisällä.</p>
+                <p>Täytä lomake ja vastaanota ilmainen esikatselu sivuistasi 48 tunnin sisällä. Maksat vasta, kun olet tyytyväinen.</p>
             </div>
-            <form class="contact-form" action="https://formsubmit.co/henriarvela@visiosites.fi" method="POST">
+            <form class="contact-form" action="https://formsubmit.co/asiakkaat@sivutnopeasti.fi" method="POST">
+                <input type="hidden" name="_next" value="https://sivutnopeasti.fi/kiitos.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="box">
+                <input type="hidden" name="_subject" value="Uusi tarjouspyyntö Sivutnopeasti.fi -sivustolta">
 
-    <!-- Kiitossivu -->
-    <input type="hidden" name="_next" value="https://sivutnopeasti.fi/kiitos.html">
+                <div class="form-group">
+                    <label for="name">Nimi *</label>
+                    <input type="text" id="name" name="Nimi" placeholder="Mikä on nimesi?" required>
+                </div>
 
-    <!-- Estää roskapostibotit -->
-    <input type="hidden" name="_captcha" value="false">
+                <div class="form-group">
+                    <label for="email">Sähköposti *</label>
+                    <input type="email" id="email" name="Sähköposti" placeholder="sahkoposti@esimerkki.fi" required>
+                </div>
 
-    <!-- Lähettää HTML-muotoisen brändiviestin -->
-    <input type="hidden" name="_template" value="box">
+                <div class="form-group">
+                    <label for="business">Yrityksesi nimi</label>
+                    <input type="text" id="business" name="Yrityksen nimi" placeholder="Yrityksesi nimi">
+                </div>
 
-    <!-- Otsikko sähköpostiin -->
-    <input type="hidden" name="_subject" value="Uusi tarjouspyyntö Sivutnopeasti.fi -sivustolta">
+                <div class="form-group">
+                    <label for="message">Kerro tarpeistasi</label>
+                    <textarea id="message" name="Viesti" placeholder="Kerro lyhyesti, millaiset sivut tarvitset..."></textarea>
+                </div>
 
-    <div class="form-group">
-        <label for="name">Nimi</label>
-        <input type="text" id="name" name="Nimi" placeholder="Mikä on nimesi?" required>
-    </div>
+                <button type="submit" class="submit-btn">Lähetä tarjouspyyntö – näet sivut ennen maksua</button>
+                
+                <div class="security-notice">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span>Tietosi ovat turvassa – emme jaa tietoja kolmansille osapuolille</span>
+                </div>
+            </form>
 
-    <div class="form-group">
-        <label for="email">Sähköposti</label>
-        <input type="email" id="email" name="Sähköposti" placeholder="sahkoposti@esimerkki.fi" required>
-    </div>
-
-    <div class="form-group">
-        <label for="business">Yrityksesi nimi</label>
-        <input type="text" id="business" name="Yrityksen nimi" placeholder="Yrityksesi nimi">
-    </div>
-
-    <div class="form-group">
-        <label for="message">Viesti</label>
-        <textarea id="message" name="Viesti" placeholder="Kerro lyhyesti, millaiset sivut tarvitset..."></textarea>
-    </div>
-
-    <button type="submit" class="submit-btn">Lähetä tarjouspyyntö</button>
-</form>
+            <div class="contact-benefits">
+                <div class="contact-benefit">
+                    <div class="contact-benefit-icon">✓</div>
+                    <h4>Ilmainen esikatselu</h4>
+                    <p>Näet sivut ennen ostopäätöstä</p>
+                </div>
+                <div class="contact-benefit">
+                    <div class="contact-benefit-icon">✓</div>
+                    <h4>Ei sitoutumista</h4>
+                    <p>Maksat vain, jos olet tyytyväinen</p>
+                </div>
+                <div class="contact-benefit">
+                    <div class="contact-benefit-icon">✓</div>
+                    <h4>48h toimitus</h4>
+                    <p>Esikatselu valmis kahdessa päivässä</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <a href="#" class="footer-logo">Sivutnopeasti.fi</a>
+            <a href="https://sivutnopeasti.fi" class="footer-logo">SIVUTNOPEASTI.FI</a>
+            <a href="mailto:asiakkaat@sivutnopeasti.fi" class="footer-email">asiakkaat@sivutnopeasti.fi</a>
             <div class="footer-links">
-                <a href="#prosessi">Prosessi</a>
-                <a href="#palvelut">Palvelut</a>
-                <a href="#meista">Meistä</a>
-                <a href="#yhteys">Ota yhteyttä</a>
+                <a href="#yhteys">Yhteystiedot</a>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-        const navLinks = navMenu.querySelectorAll('a');
+    <a href="#yhteys" class="floating-cta" id="floatingCta">Tilaa sivut ilmaiseksi</a>
 
-        function toggleMenu() {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-        }
-
-        menuToggle.addEventListener('click', toggleMenu);
-        menuOverlay.addEventListener('click', toggleMenu);
-
-        // Close menu when clicking on links
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navMenu.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // Process Animation
-        let currentStep = 0;
-        const totalSteps = 4;
-        const stepDuration = 3500;
-        let animationInterval;
-
-        const scenes = ['scene1', 'scene2', 'scene3', 'scene4'];
-        const stepItems = ['step1', 'step2', 'step3', 'step4'];
-
-        function updateScene(step) {
-            stepItems.forEach((item, index) => {
-                const el = document.getElementById(item);
-                if (index === step) {
-                    el.classList.add('active');
-                } else {
-                    el.classList.remove('active');
-                }
-            });
-
-            scenes.forEach((scene, index) => {
-                const el = document.getElementById(scene);
-                if (index === step) {
-                    el.classList.remove('exit');
-                    el.classList.add('active');
-                } else if (index < step) {
-                    el.classList.remove('active');
-                    el.classList.add('exit');
-                } else {
-                    el.classList.remove('active', 'exit');
-                }
-            });
-
-            if (step === 2) {
-                setTimeout(() => {
-                    const checks = document.querySelectorAll('#scene3 .check-mark');
-                    checks.forEach((check, i) => {
-                        setTimeout(() => {
-                            check.classList.add('checked');
-                            check.innerHTML = '&#10003;';
-                        }, i * 150);
-                    });
-                }, 600);
-            }
-
-            if (step === 0) {
-                document.querySelectorAll('.check-mark').forEach(check => {
-                    check.classList.remove('checked');
-                    check.innerHTML = '';
-                });
-            }
-        }
-
-        function nextStep() {
-            currentStep = (currentStep + 1) % totalSteps;
-            updateScene(currentStep);
-        }
-
-        function startAnimation() {
-            if (animationInterval) clearInterval(animationInterval);
-            animationInterval = setInterval(nextStep, stepDuration);
-        }
-
-        updateScene(0);
-        startAnimation();
-
-        const stage = document.getElementById('stage');
-        stage.addEventListener('mouseenter', () => {
-            clearInterval(animationInterval);
-        });
-        
-        stage.addEventListener('mouseleave', () => {
-            startAnimation();
-        });
-
-        // Close mobile menu on window resize if open
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    </script>
+    <script src="main.js"></script>
 
 </body>
 </html>
