@@ -1,0 +1,109 @@
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+const navLinks = navMenu.querySelectorAll('a');
+
+function toggleMenu() {
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    menuOverlay.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+}
+
+menuToggle.addEventListener('click', toggleMenu);
+menuOverlay.addEventListener('click', toggleMenu);
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+});
+
+// Process Animation - KIINTEÄ KORKEUS, EI LAGAA
+let currentStep = 0;
+const totalSteps = 4;
+const stepDuration = 2500;
+let animationInterval;
+let isPaused = false;
+
+const scenes = ['scene1', 'scene2', 'scene3', 'scene4'];
+const stepItems = ['step1', 'step2', 'step3', 'step4'];
+
+function updateScene(step) {
+    // Update step indicators
+    stepItems.forEach((item, index) => {
+        const el = document.getElementById(item);
+        if (index === step) {
+            el.classList.add('active');
+        } else {
+            el.classList.remove('active');
+        }
+    });
+
+    // Update scenes - visibility/opacity only, ei display:none
+    scenes.forEach((scene, index) => {
+        const el = document.getElementById(scene);
+        if (index === step) {
+            el.classList.add('active');
+        } else {
+            el.classList.remove('active');
+        }
+    });
+}
+
+function nextStep() {
+    if (isPaused) return;
+    currentStep = (currentStep + 1) % totalSteps;
+    updateScene(currentStep);
+}
+
+function startAnimation() {
+    if (animationInterval) clearInterval(animationInterval);
+    animationInterval = setInterval(nextStep, stepDuration);
+}
+
+// Initialize
+updateScene(0);
+startAnimation();
+
+// Click on steps to navigate
+document.querySelectorAll('.step-item').forEach((item, index) => {
+    item.addEventListener('click', () => {
+        currentStep = index;
+        updateScene(currentStep);
+        clearInterval(animationInterval);
+        startAnimation();
+    });
+});
+
+// Floating CTA visibility - PIILOTETAAN FOOTERISSA
+const floatingCta = document.getElementById('floatingCta');
+const heroSection = document.querySelector('.hero');
+
+function checkScroll() {
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    const footer = document.querySelector('footer');
+    const footerTop = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    const buffer = 100; // px ennen footeria
+    
+    // Näytä nappi kun hero on ohitettu, mutta footer ei vielä näy
+    if (heroBottom < 0 && footerTop > windowHeight + buffer) {
+        floatingCta.classList.add('visible');
+    } else {
+        floatingCta.classList.remove('visible');
+    }
+}
+
+window.addEventListener('scroll', checkScroll);
+checkScroll();
+
+// Close mobile menu on resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+        toggleMenu();
+    }
+});
