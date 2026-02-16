@@ -280,12 +280,15 @@ nav {
     transition: all 0.3s;
     font-size: 1rem;
     box-shadow: 0 4px 15px rgba(30, 91, 181, 0.25);
+    border: 2px solid transparent;
 }
 
 .hero-cta:hover {
     background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(30, 91, 181, 0.35);
+    color: white;
+    border-color: var(--primary-dark);
 }
 
 .hero-secondary {
@@ -1019,11 +1022,29 @@ section {
     color: var(--text);
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .price-sub span {
     font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.price-alt {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-warm);
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.price-alt span {
+    font-size: 0.85rem;
     color: var(--text-light);
     font-weight: 400;
 }
