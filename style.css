@@ -50,6 +50,11 @@ a:hover {
     color: var(--primary-dark);
 }
 
+/* Scroll margin for anchor links */
+section[id] {
+    scroll-margin-top: 70px;
+}
+
 /* Header & Navigation */
 header {
     position: fixed;
@@ -1637,7 +1642,7 @@ footer {
         padding-right: 2rem;
         gap: 1.5rem;
         transition: right 0.3s ease;
-        box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+        border-left: 1px solid var(--border);
         z-index: 999;
     }
 
