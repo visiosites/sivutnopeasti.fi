@@ -79,19 +79,25 @@ document.querySelectorAll('.step-item').forEach((item, index) => {
     });
 });
 
-// Floating CTA visibility - PIILOTETAAN FOOTERISSA
+// Floating CTA visibility - PIILOTETAAN FOOTERISSA JA YHTEYS-OSIOSSA
 const floatingCta = document.getElementById('floatingCta');
 const heroSection = document.querySelector('.hero');
+const contactSection = document.getElementById('yhteys');
 
 function checkScroll() {
     const heroBottom = heroSection.getBoundingClientRect().bottom;
     const footer = document.querySelector('footer');
     const footerTop = footer.getBoundingClientRect().top;
+    const contactTop = contactSection.getBoundingClientRect().top;
+    const contactBottom = contactSection.getBoundingClientRect().bottom;
     const windowHeight = window.innerHeight;
     const buffer = 100; // px ennen footeria
     
-    // Näytä nappi kun hero on ohitettu, mutta footer ei vielä näy
-    if (heroBottom < 0 && footerTop > windowHeight + buffer) {
+    // Tarkista onko yhteys-osio näkyvissä
+    const isContactVisible = contactTop < windowHeight && contactBottom > 0;
+    
+    // Näytä nappi kun hero on ohitettu, mutta footer ei vielä näy eikä yhteys-osio ole näkyvissä
+    if (heroBottom < 0 && footerTop > windowHeight + buffer && !isContactVisible) {
         floatingCta.classList.add('visible');
     } else {
         floatingCta.classList.remove('visible');
