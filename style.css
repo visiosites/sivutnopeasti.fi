@@ -1760,3 +1760,11 @@ footer {
     display: block;
     opacity: 1;
 }
+
+.form-notice {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.4;
+}
