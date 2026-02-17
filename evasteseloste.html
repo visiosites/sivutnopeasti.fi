@@ -13,27 +13,10 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="https://sivutnopeasti.fi" class="logo">SIVUTNOPEASTI.FI</a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Avaa valikko">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="https://sivutnopeasti.fi#prosessi">Miten tilaan sivut?</a></li>
-                <li><a href="https://sivutnopeasti.fi#hinnoittelu">Hinnoittelu</a></li>
-                <li><a href="https://sivutnopeasti.fi#arvostelut">Arvostelut</a></li>
-                <li><a href="https://sivutnopeasti.fi#tiimi">Yhteystiedot</a></li>
-                <li><a href="https://sivutnopeasti.fi#yhteys" class="btn">Tilaa sivut ilmaiseksi</a></li>
-            </ul>
-        </nav>
-        <div class="menu-overlay" id="menuOverlay"></div>
-    </header>
+    <!--#include virtual="/partials/header.html" -->
 
-    <section class="hero" style="min-height: 40vh; padding: 8rem 0 4rem;">
-        <div class="hero-content" style="grid-template-columns: 1fr; text-align: center;">
+    <section class="hero">
+        <div class="hero-content">
             <div class="hero-text">
                 <h1>Evästeseloste</h1>
                 <p class="hero-subtitle">Tietoa sivustolla käytetyistä evästeistä ja niiden hallinnasta</p>
@@ -41,52 +24,52 @@
         </div>
     </section>
 
-    <section class="features" style="padding-top: 2rem;">
+    <section class="features">
         <div class="container">
-            <div class="section-header" style="text-align: left; max-width: 800px;">
+            <div class="section-header">
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Mitä ovat evästeet?</h3>
+                <h3>Mitä ovat evästeet?</h3>
                 <p>Evästeet ovat pieniä tekstitiedostoja, joita verkkosivustot voivat käyttää käyttäjäkokemuksen tehostamiseen. Lain mukaan voimme tallentaa evästeitä laitteellesi, jos ne ovat ehdottoman välttämättömiä tämän sivuston toiminnan kannalta. Kaiken tyyppisiin evästeisiin tarvitsemme sinun lupasi. Voit milloin tahansa muuttaa tai peruuttaa suostumuksesi evästeilmoituksessa verkkosivustollamme.</p>
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Käyttämämme evästetyypit</h3>
+                <h3>Käyttämämme evästetyypit</h3>
                 
-                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--primary);">Välttämättömät evästeet</h4>
+                <h4>Välttämättömät evästeet</h4>
                 <p>Nämä evästeet ovat välttämättömiä verkkosivuston toiminnalle, eikä niitä voi kytkeä pois päältä järjestelmissämme. Ne asetetaan yleensä vain, kun käytät toimintoja, jotka muodostavat palvelupyyntöjä, kuten lomakkeiden lähettämistä tai tietosuoja-asetusten määrittämistä.</p>
                 
-                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--primary);">Suorituskyky- ja analytiikkaevästeet</h4>
+                <h4>Suorituskyky- ja analytiikkaevästeet</h4>
                 <p>Näiden evästeiden avulla voimme laskea käyntimääriä ja liikennelähteitä, jotta voimme mitata ja parantaa sivustomme suorituskykyä. Ne auttavat meitä tietämään, mitkä sivut ovat suosituimpia ja vähiten suosittuja, ja näkemään, miten vierailijat liikkuvat sivustolla.</p>
                 
-                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--primary);">Kolmannen osapuolen evästeet</h4>
+                <h4>Kolmannen osapuolen evästeet</h4>
                 <p>Sivustomme käyttää seuraavia kolmannen osapuolen palveluita, jotka voivat asettaa evästeitä:</p>
                 
-                <div style="background: var(--bg-warm); padding: 1.5rem; border-radius: 12px; margin: 1rem 0;">
-                    <h5 style="margin-bottom: 0.5rem;">Google Fonts</h5>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Käytämme Google Fonts -palvelua verkkosivustomme typografian toteuttamiseen. Google voi kerätä käyttäjien IP-osoitteita ja muita tietoja fonttien lataamisen yhteydessä.</p>
+                <div class="feature-card" style="text-align: left; margin: 1rem 0;">
+                    <h5>Google Fonts</h5>
+                    <p>Käytämme Google Fonts -palvelua verkkosivustomme typografian toteuttamiseen. Google voi kerätä käyttäjien IP-osoitteita ja muita tietoja fonttien lataamisen yhteydessä.</p>
                     <p style="font-size: 0.85rem; color: var(--text-light);">Tarkoitus: Tekstisisällön näyttäminen</p>
                 </div>
                 
-                <div style="background: var(--bg-warm); padding: 1.5rem; border-radius: 12px; margin: 1rem 0;">
-                    <h5 style="margin-bottom: 0.5rem;">Formsubmit (Lomakkeiden käsittely)</h5>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Käytämme Formsubmit-palvelua yhteydenottolomakkeiden välittämiseen. Palvelu voi asettaa toiminnallisia evästeitä lomakkeiden turvallisen lähettämisen varmistamiseksi.</p>
+                <div class="feature-card" style="text-align: left; margin: 1rem 0;">
+                    <h5>Formsubmit (Lomakkeiden käsittely)</h5>
+                    <p>Käytämme Formsubmit-palvelua yhteydenottolomakkeiden välittämiseen. Palvelu voi asettaa toiminnallisia evästeitä lomakkeiden turvallisen lähettämisen varmistamiseksi.</p>
                     <p style="font-size: 0.85rem; color: var(--text-light);">Tarkoitus: Lomakkeiden toimivuus ja turvallisuus</p>
                 </div>
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Evästeiden hallinta</h3>
+                <h3>Evästeiden hallinta</h3>
                 <p>Voit hallita ja/tai poistaa evästeet vapaasti halutessasi. Voit poistaa kaikki jo laitteellasi olevat evästeet ja useimmat selaimet mahdollistavat estää evästeiden tallentamisen. Jos kuitenkin estät evästeiden tallentamisen, sinun on ehkä määritettävä asetukset manuaalisesti joka kerta, kun vierailet sivustolla, ja jotkin palvelut ja toiminnot eivät välttämättä toimi oikein.</p>
                 
-                <p style="margin-top: 1rem;">Useimmat selaimet mahdollistavat evästeiden hallinnan seuraavasti:</p>
-                <ul style="margin-left: 2rem; margin-bottom: 1rem; color: var(--text-light);">
+                <p>Useimmat selaimet mahdollistavat evästeiden hallinnan seuraavasti:</p>
+                <ul>
                     <li>Chrome: Asetukset → Tietosuoja ja turvallisuus → Evästeet ja muut sivustotiedot</li>
                     <li>Firefox: Asetukset → Tietosuoja ja turvallisuus → Evästeet ja sivustotiedot</li>
                     <li>Safari: Asetukset → Tietosuoja → Evästeet ja sivustotiedot</li>
                     <li>Edge: Asetukset → Evästeet ja sivustotiedot → Hallitse ja poista evästeet</li>
                 </ul>
                 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Lisätietoja</h3>
+                <h3>Lisätietoja</h3>
                 <p>Lisätietoja siitä, keitä olemme, miten voit ottaa meihin yhteyttä ja miten käsittelemme henkilötietoja, löydät <a href="tietosuojaseloste.html">tietosuojaselosteestamme</a>.</p>
                 
-                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
-                    <p style="font-size: 0.9rem; color: var(--text-light);">
+                <div class="animation-cta" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+                    <p class="animation-cta-text">
                         <a href="tietosuojaseloste.html">Siirry tietosuojaselosteeseen</a> | 
                         <a href="https://sivutnopeasti.fi">Palaa etusivulle</a>
                     </p>
@@ -95,20 +78,7 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <a href="https://sivutnopeasti.fi" class="footer-logo">SIVUTNOPEASTI.FI</a>
-            <a href="mailto:sivut@sivutnopeasti.fi" class="footer-email">sivut@sivutnopeasti.fi</a>
-            <div class="footer-links">
-                <a href="https://sivutnopeasti.fi#tiimi">Yhteystiedot</a>
-                <a href="tietosuojaseloste.html">Tietosuojaseloste</a>
-                <a href="evasteseloste.html">Evästeseloste</a>
-            </div>
-            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.6;">Visio Sites Oy (3459869-6)</p>
-        </div>
-    </footer>
-
-    <script src="main.js"></script>
+    <!--#include virtual="/partials/footer.html" -->
 
 </body>
 </html>
