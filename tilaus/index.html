@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -1109,7 +1110,7 @@
                 <div class="progress-step" data-step="5">5</div>
             </div>
 
-            <form action="https://formspree.io/f/xvzbgpoz" method="POST" enctype="multipart/form-data" id="tilausForm">
+            <form action="https://formspree.io/f/xvzbgpoz" method="POST" enctype="multipart/form-data" id="tilausForm" novalidate>
                 <input type="hidden" name="_subject" value="Uusi verkkosivutilaus - Verkkokumppani">
                 <input type="text" name="_gotcha" style="display:none">
                 
@@ -2064,9 +2065,35 @@
 
         // Form submission - korvaa tiedostot pakatuilla
         document.getElementById('tilausForm').addEventListener('submit', function(e) {
+            // Validoi step 5:n pakolliset kentät
+            const palvelut = document.getElementById('palvelut');
+            const paketti = document.getElementById('paketti');
+            let valid = true;
+
+            if (!palvelut.value.trim()) {
+                palvelut.style.borderColor = '#dc2626';
+                palvelut.focus();
+                valid = false;
+            } else {
+                palvelut.style.borderColor = '';
+            }
+
+            if (!paketti.value) {
+                paketti.style.borderColor = '#dc2626';
+                if (valid) paketti.focus();
+                valid = false;
+            } else {
+                paketti.style.borderColor = '';
+            }
+
+            if (!valid) {
+                e.preventDefault();
+                return;
+            }
+
             document.getElementById('loadingOverlay').classList.add('show');
             document.getElementById('submitBtn').disabled = true;
-            
+
             // Korvaa logo pakatulla versiolla
             if (logoFile) {
                 const logoInput = document.getElementById('logoInput');
