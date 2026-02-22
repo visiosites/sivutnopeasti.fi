@@ -1937,6 +1937,7 @@ footer {
 
 /* ============================================
    TILAUSLOMAKE - TILAUS.HTML
+   Käyttää sivutnopeasti.fi yleisiä värejä ja tyylejä
    ============================================ */
 
 /* Honeypot-kenttä (spambottien varalle) */
@@ -1949,19 +1950,21 @@ footer {
     display: none !important;
 }
 
-/* Tilauksen sivukohtaiset muuttujat */
+/* Tilauksen sivukohtaiset muuttujat - käyttää yleisiä värejä */
 .order-page {
-    --order-primary: #1a5f4a;
-    --order-primary-dark: #0f3d2e;
-    --order-text: #1a1a1a;
-    --order-text-light: #4a4a4a;
-    --order-bg: #fafafa;
-    --order-bg-warm: #f5f3f0;
-    --order-border: #e0ddd8;
+    --order-primary: var(--primary);
+    --order-primary-light: var(--primary-light);
+    --order-primary-dark: var(--primary-dark);
+    --order-accent: var(--accent);
+    --order-text: var(--text);
+    --order-text-light: var(--text-light);
+    --order-bg: var(--bg);
+    --order-bg-warm: var(--bg-warm);
+    --order-border: var(--border);
     --order-error: #dc2626;
     --order-success: #16a34a;
     
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: var(--order-text);
     line-height: 1.6;
     background: var(--order-bg-warm);
@@ -1981,22 +1984,22 @@ footer {
 
 /* Otsikkoalue */
 .order-header {
-    background: var(--order-primary);
+    background: linear-gradient(135deg, var(--order-primary) 0%, var(--order-primary-light) 100%);
     color: white;
     padding: 3rem 2.5rem;
     text-align: center;
 }
 
 .order-header h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     margin-bottom: 0.75rem;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .order-header p {
     opacity: 0.9;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* Lomakekontaineri */
@@ -2038,6 +2041,7 @@ footer {
     font-weight: 600;
     color: var(--order-text-light);
     transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .progress-step.active {
@@ -2046,7 +2050,7 @@ footer {
 }
 
 .progress-step.completed {
-    background: var(--order-primary);
+    background: linear-gradient(135deg, var(--order-primary) 0%, var(--order-primary-light) 100%);
     border-color: var(--order-primary);
     color: white;
 }
@@ -2068,11 +2072,11 @@ footer {
 
 /* Otsikot */
 .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.75rem;
     color: var(--order-text);
     margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .section-subtitle {
@@ -2088,10 +2092,11 @@ footer {
 
 .form-group label {
     display: block;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--order-text);
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .required {
@@ -2106,10 +2111,10 @@ textarea,
 select {
     width: 100%;
     padding: 0.875rem 1rem;
-    border: 1px solid var(--order-border);
+    border: 2px solid var(--order-border);
     border-radius: 4px;
     font-size: 1rem;
-    font-family: inherit;
+    font-family: 'Open Sans', sans-serif;
     transition: all 0.3s;
     background: white;
 }
@@ -2119,6 +2124,7 @@ textarea:focus,
 select:focus {
     outline: none;
     border-color: var(--order-primary);
+    box-shadow: 0 0 0 4px rgba(30, 91, 181, 0.1);
 }
 
 input.error,
@@ -2164,10 +2170,11 @@ textarea {
 
 /* Tyyli-kortit */
 .style-card {
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 2rem 1.5rem;
     text-align: center;
     transition: all 0.3s;
+    border: 2px solid transparent;
 }
 
 .style-card .style-icon {
@@ -2179,25 +2186,26 @@ textarea {
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 .style-card .style-name {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .style-card .style-desc {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 0.85rem;
     line-height: 1.5;
 }
 
 /* Klassinen */
 .style-card.klassinen {
-    border: 2px solid #d4c5b0;
+    border-color: #d4c5b0;
     background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
-    font-family: 'Playfair Display', serif;
 }
 
 .style-card.klassinen .style-icon {
@@ -2209,6 +2217,7 @@ textarea {
 .style-card.klassinen .style-name {
     color: #3d3229;
     letter-spacing: 0.5px;
+    font-family: 'Playfair Display', serif;
 }
 
 .style-card.klassinen .style-desc {
@@ -2223,10 +2232,9 @@ textarea {
 
 /* Moderni */
 .style-card.moderni {
-    border: 2px solid #e0e0e0;
+    border-color: #e0e0e0;
     border-radius: 12px;
     background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-    font-family: 'Inter', sans-serif;
 }
 
 .style-card.moderni .style-icon {
@@ -2240,6 +2248,7 @@ textarea {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .style-card.moderni .style-desc {
@@ -2254,10 +2263,9 @@ textarea {
 
 /* Luksus */
 .style-card.luksus {
-    border: 2px solid #d4af37;
+    border-color: #d4af37;
     border-radius: 8px;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    font-family: 'Cinzel', serif;
 }
 
 .style-card.luksus .style-icon {
@@ -2272,6 +2280,7 @@ textarea {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 1.3rem;
+    font-family: 'Cinzel', serif;
 }
 
 .style-card.luksus .style-desc {
@@ -2286,10 +2295,9 @@ textarea {
 
 /* Kotoisa */
 .style-card.kotoisa {
-    border: 2px solid #d4a574;
+    border-color: #d4a574;
     border-radius: 20px;
     background: linear-gradient(135deg, #faf4ed 0%, #f0e6d8 100%);
-    font-family: 'Merriweather', serif;
 }
 
 .style-card.kotoisa .style-icon {
@@ -2300,6 +2308,7 @@ textarea {
 
 .style-card.kotoisa .style-name {
     color: #5d3a1a;
+    font-family: 'Merriweather', serif;
 }
 
 .style-card.kotoisa .style-desc {
@@ -2314,10 +2323,9 @@ textarea {
 
 /* Elegantti */
 .style-card.elegantti {
-    border: 2px solid #e8d5d5;
+    border-color: #e8d5d5;
     border-radius: 30px 30px 30px 4px;
     background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
-    font-family: 'Great Vibes', cursive;
 }
 
 .style-card.elegantti .style-icon {
@@ -2331,6 +2339,7 @@ textarea {
     color: #c71585;
     font-size: 1.8rem;
     font-weight: normal;
+    font-family: 'Great Vibes', cursive;
 }
 
 .style-card.elegantti .style-desc {
@@ -2348,7 +2357,6 @@ textarea {
     border: 3px solid transparent;
     border-radius: 12px;
     background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-    font-family: 'Bebas Neue', sans-serif;
     position: relative;
 }
 
@@ -2372,6 +2380,7 @@ textarea {
     color: #1a1a1a;
     font-size: 1.5rem;
     letter-spacing: 3px;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 .style-card.creative .style-desc {
@@ -2404,12 +2413,13 @@ textarea {
 .option-card:hover {
     border-color: var(--order-primary);
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(30, 91, 181, 0.1);
 }
 
 .option-card.selected {
     border-color: var(--order-primary);
     background: var(--order-bg-warm);
-    box-shadow: 0 4px 12px rgba(26, 95, 74, 0.15);
+    box-shadow: 0 4px 12px rgba(30, 91, 181, 0.15);
 }
 
 .option-card input {
@@ -2426,6 +2436,8 @@ textarea {
 .font-name {
     font-size: 0.85rem;
     color: var(--order-text-light);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .color-preview {
@@ -2436,14 +2448,15 @@ textarea {
 }
 
 .color-name {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Custom colors */
 .option-card.custom-colors {
     border: 2px dashed var(--order-primary);
-    background: linear-gradient(135deg, #f0f9f4 0%, #e8f5e9 100%);
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fc 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2452,7 +2465,7 @@ textarea {
 }
 
 .option-card.custom-colors:hover {
-    background: linear-gradient(135deg, #e8f5e9 0%, #d0e8d4 100%);
+    background: linear-gradient(135deg, #e8f2fc 0%, #d0e8f4 100%);
 }
 
 .option-card.custom-colors .custom-icon {
@@ -2480,12 +2493,13 @@ textarea {
 }
 
 .custom-color-header {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--order-text);
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .color-picker-wrapper {
@@ -2510,6 +2524,7 @@ textarea {
 .color-input-group label {
     font-size: 0.875rem;
     margin-bottom: 0;
+    font-weight: 600;
 }
 
 input[type="color"] {
@@ -2555,6 +2570,7 @@ input[type="text"].hex-input {
     color: var(--order-text-light);
     margin-bottom: 1rem;
     font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .preview-sample {
@@ -2566,7 +2582,8 @@ input[type="text"].hex-input {
 
 .preview-text {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .preview-subtext {
@@ -2603,6 +2620,7 @@ input[type="text"].hex-input {
     border-color: var(--order-primary);
     background: var(--order-bg-warm);
     transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(30, 91, 181, 0.1);
 }
 
 .file-upload-area.disabled {
@@ -2635,6 +2653,8 @@ input[type="text"].hex-input {
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
     color: var(--order-primary);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 .upload-text span {
@@ -2663,8 +2683,9 @@ input[type="text"].hex-input {
 .upload-alternative a {
     color: var(--order-primary);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     display: inline;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .upload-alternative a:hover {
@@ -2673,24 +2694,25 @@ input[type="text"].hex-input {
 
 /* Logo upload */
 .logo-upload-area {
-    border: 2px dashed #667eea;
+    border: 2px dashed var(--order-primary-light);
     border-radius: 12px;
     padding: 2.5rem 2rem;
     text-align: center;
     transition: all 0.3s;
-    background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f2fc 100%);
     cursor: pointer;
     position: relative;
     margin-bottom: 1.5rem;
 }
 
 .logo-upload-area:hover {
-    border-color: #764ba2;
-    background: linear-gradient(135deg, #e8edff 0%, #dde3ff 100%);
+    border-color: var(--order-primary);
+    background: linear-gradient(135deg, #e8f2fc 0%, #d0e8f4 100%);
+    box-shadow: 0 4px 15px rgba(30, 91, 181, 0.1);
 }
 
 .logo-upload-area.dragover {
-    border-color: #764ba2;
+    border-color: var(--order-primary);
     transform: scale(1.02);
 }
 
@@ -2707,14 +2729,16 @@ input[type="text"].hex-input {
 .logo-icon {
     font-size: 2.5rem;
     margin-bottom: 0.75rem;
-    color: #667eea;
+    color: var(--order-primary);
 }
 
 .logo-text strong {
     display: block;
     font-size: 1rem;
     margin-bottom: 0.25rem;
-    color: #667eea;
+    color: var(--order-primary);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 .logo-text span {
@@ -2724,7 +2748,7 @@ input[type="text"].hex-input {
 
 .logo-hint {
     font-size: 0.75rem;
-    color: #718096;
+    color: var(--order-text-light);
     margin-top: 0.5rem;
 }
 
@@ -2748,13 +2772,14 @@ input[type="text"].hex-input {
 }
 
 .preview-count {
-    font-weight: 500;
+    font-weight: 600;
     color: var(--order-text);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .preview-count.max {
     color: var(--order-primary);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .clear-all-btn {
@@ -2766,6 +2791,8 @@ input[type="text"].hex-input {
     font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .clear-all-btn:hover {
@@ -2790,6 +2817,7 @@ input[type="text"].hex-input {
 
 .image-preview-item:hover {
     border-color: var(--order-primary);
+    box-shadow: 0 4px 15px rgba(30, 91, 181, 0.15);
 }
 
 .image-preview-item img {
@@ -2859,46 +2887,51 @@ input[type="text"].hex-input {
     border-top: 1px solid var(--order-border);
 }
 
-.btn {
+.order-page .btn {
     padding: 0.875rem 2rem;
-    border-radius: 4px;
-    font-weight: 500;
+    border-radius: 6px;
+    font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s;
     border: none;
-    font-family: inherit;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.btn-secondary {
+.order-page .btn-secondary {
     background: transparent;
     color: var(--order-text);
-    border: 1px solid var(--order-border);
+    border: 2px solid var(--order-border);
 }
 
-.btn-secondary:hover {
+.order-page .btn-secondary:hover {
     background: var(--order-bg);
+    border-color: var(--order-primary);
 }
 
-.btn-primary {
-    background: var(--order-primary);
+.order-page .btn-primary {
+    background: linear-gradient(135deg, var(--order-primary) 0%, var(--order-primary-light) 100%);
     color: white;
+    box-shadow: 0 4px 15px rgba(30, 91, 181, 0.25);
 }
 
-.btn-primary:hover:not(:disabled) {
-    background: var(--order-primary-dark);
+.order-page .btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--order-primary-dark) 0%, var(--order-primary) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 91, 181, 0.35);
 }
 
-.btn-primary:disabled {
+.order-page .btn-primary:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-.btn-text {
+.order-page .btn-text {
     background: transparent;
     color: var(--order-primary);
     text-decoration: underline;
     padding: 0.5rem;
+    font-weight: 600;
 }
 
 /* Submit-alue */
@@ -2925,10 +2958,10 @@ input[type="text"].hex-input {
 }
 
 .summary-box h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
     margin-bottom: 1rem;
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .summary-item {
@@ -2936,6 +2969,7 @@ input[type="text"].hex-input {
     justify-content: space-between;
     padding: 0.75rem 0;
     border-bottom: 1px solid var(--order-border);
+    font-family: 'Open Sans', sans-serif;
 }
 
 .summary-item:last-child {
@@ -2947,6 +2981,8 @@ input[type="text"].hex-input {
     cursor: pointer;
     font-size: 0.85rem;
     text-decoration: underline;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .change-link:hover {
@@ -2977,11 +3013,12 @@ input[type="text"].hex-input {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     z-index: 1000;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    backdrop-filter: blur(5px);
 }
 
 .loading-overlay.show {
@@ -3002,6 +3039,12 @@ input[type="text"].hex-input {
     to { transform: rotate(360deg); }
 }
 
+.loading-overlay p {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--order-text);
+    font-weight: 600;
+}
+
 /* Hinnasto tabs */
 .hinnasto-tabs {
     display: flex;
@@ -3018,11 +3061,13 @@ input[type="text"].hex-input {
     font-size: 0.88rem;
     color: var(--order-text-light);
     transition: all 0.2s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 .hinnasto-tab.active {
     border-color: var(--order-primary);
-    background: var(--order-primary);
+    background: linear-gradient(135deg, var(--order-primary) 0%, var(--order-primary-light) 100%);
     color: white;
 }
 
@@ -3093,12 +3138,17 @@ input[type="text"].hex-input {
         padding: 2rem 1.5rem;
     }
     
+    .order-header h1 {
+        font-size: 1.5rem;
+    }
+    
     .order-form-container {
         padding: 1.5rem;
     }
     
     .style-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
     
     .option-grid {
@@ -3114,8 +3164,9 @@ input[type="text"].hex-input {
         gap: 1rem;
     }
     
-    .btn {
+    .order-page .btn {
         width: 100%;
+        justify-content: center;
     }
     
     .image-preview-grid {
@@ -3133,5 +3184,9 @@ input[type="text"].hex-input {
     
     .submit-hint {
         text-align: center;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
     }
 }
