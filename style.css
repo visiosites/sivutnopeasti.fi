@@ -2900,13 +2900,16 @@ input[type="text"].hex-input {
 
 .order-page .btn-secondary {
     background: transparent;
-    color: var(--order-text);
-    border: 2px solid var(--order-border);
+    color: var(--primary);
+    border: 2px solid var(--primary);
 }
 
 .order-page .btn-secondary:hover {
-    background: var(--order-bg);
-    border-color: var(--order-primary);
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(30, 91, 181, 0.25);
 }
 
 .order-page .btn-primary {
