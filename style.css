@@ -10,6 +10,175 @@
     --border: #e2e8f0;
 }
 
+/* ============================================
+   SISÄLTÖSIVUJEN VAKIOTYYLIT
+   Lisää nämä style.css:n loppuun.
+   Käyttö: <div class="content-hero"> + <main class="content-page">
+   ============================================ */
+
+/* Sivun otsikkoalue (korvaa hero-section sisältösivuilla) */
+.content-hero {
+    margin-top: 70px;
+    padding: 4rem 2rem 3rem;
+    background: linear-gradient(135deg, var(--bg-warm) 0%, #fff 100%);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.content-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+
+.content-hero p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Pääsisältöalue – ei tarvita ylimääräistä containeria tai section-tageja */
+.content-page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+}
+
+/* Otsikot */
+.content-page h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.content-page h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.content-page h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Leipäteksti */
+.content-page p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* Listat */
+.content-page ul,
+.content-page ol {
+    margin: 1rem 0 1.5rem 1.5rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.content-page li {
+    margin-bottom: 0.4rem;
+}
+
+/* Linkit leipätekstissä */
+.content-page a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    display: inline;
+}
+
+.content-page a:hover {
+    color: var(--primary-dark);
+}
+
+/* Infokortti (esim. kolmannen osapuolen palvelut) */
+.content-card {
+    background: var(--bg-warm);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.content-card h4 {
+    margin-bottom: 0.4rem;
+}
+
+.content-card p {
+    margin-bottom: 0.25rem;
+}
+
+.content-card-meta {
+    font-size: 0.85rem !important;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Sivun alaosan navigointilinkit */
+.content-footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.content-footer-links a {
+    color: var(--primary);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.3s;
+}
+
+.content-footer-links a:hover {
+    color: var(--primary-dark);
+}
+
+/* Mobiili */
+@media (max-width: 768px) {
+    .content-hero {
+        padding: 3rem 1.5rem 2rem;
+    }
+
+    .content-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-page {
+        padding: 2rem 1.25rem 4rem;
+    }
+
+    .content-page h2 {
+        font-size: 1.3rem;
+    }
+
+    .content-footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
