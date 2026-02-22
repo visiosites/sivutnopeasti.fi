@@ -2900,13 +2900,13 @@ input[type="text"].hex-input {
 
 .order-page .btn-secondary {
     background: transparent;
-    color: var(--primary);
+    color: var(--primary) !important;
     border: 2px solid var(--primary);
 }
 
 .order-page .btn-secondary:hover {
     background: var(--primary);
-    color: white;
+    color: white !important;
     border-color: var(--primary);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(30, 91, 181, 0.25);
