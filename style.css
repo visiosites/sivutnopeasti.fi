@@ -1690,7 +1690,9 @@ footer {
     display: flex;
     gap: 2rem;
     margin-top: 0.5rem;
+    align-items: center;
 }
+
 
 .footer-links a {
     color: rgba(255,255,255,0.7);
