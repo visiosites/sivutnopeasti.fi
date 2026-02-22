@@ -9,76 +9,69 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-    <!--#include virtual="/partials/header.html" -->
+    <div id="header-placeholder"></div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Evästeseloste</h1>
-                <p class="hero-subtitle">Tietoa sivustolla käytetyistä evästeistä ja niiden hallinnasta</p>
-            </div>
+    <div class="content-hero">
+        <h1>Evästeseloste</h1>
+        <p>Tietoa sivustolla käytetyistä evästeistä ja niiden hallinnasta</p>
+    </div>
+
+    <main class="content-page">
+
+        <h2>Mitä ovat evästeet?</h2>
+        <p>Evästeet ovat pieniä tekstitiedostoja, joita verkkosivustot voivat käyttää käyttäjäkokemuksen tehostamiseen. Lain mukaan voimme tallentaa evästeitä laitteellesi, jos ne ovat ehdottoman välttämättömiä tämän sivuston toiminnan kannalta. Kaiken tyyppisiin evästeisiin tarvitsemme sinun lupasi. Voit milloin tahansa muuttaa tai peruuttaa suostumuksesi evästeilmoituksessa verkkosivustollamme.</p>
+
+        <h2>Käyttämämme evästetyypit</h2>
+
+        <h3>Välttämättömät evästeet</h3>
+        <p>Nämä evästeet ovat välttämättömiä verkkosivuston toiminnalle, eikä niitä voi kytkeä pois päältä järjestelmissämme. Ne asetetaan yleensä vain, kun käytät toimintoja, jotka muodostavat palvelupyyntöjä, kuten lomakkeiden lähettämistä tai tietosuoja-asetusten määrittämistä.</p>
+
+        <h3>Suorituskyky- ja analytiikkaevästeet</h3>
+        <p>Näiden evästeiden avulla voimme laskea käyntimääriä ja liikennelähteitä, jotta voimme mitata ja parantaa sivustomme suorituskykyä. Ne auttavat meitä tietämään, mitkä sivut ovat suosituimpia ja vähiten suosittuja, ja näkemään, miten vierailijat liikkuvat sivustolla.</p>
+
+        <h3>Kolmannen osapuolen evästeet</h3>
+        <p>Sivustomme käyttää seuraavia kolmannen osapuolen palveluita, jotka voivat asettaa evästeitä:</p>
+
+        <div class="content-card">
+            <h4>Google Fonts</h4>
+            <p>Käytämme Google Fonts -palvelua verkkosivustomme typografian toteuttamiseen. Google voi kerätä käyttäjien IP-osoitteita ja muita tietoja fonttien lataamisen yhteydessä.</p>
+            <p class="content-card-meta">Tarkoitus: Tekstisisällön näyttäminen</p>
         </div>
-    </section>
 
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                
-                <h3>Mitä ovat evästeet?</h3>
-                <p>Evästeet ovat pieniä tekstitiedostoja, joita verkkosivustot voivat käyttää käyttäjäkokemuksen tehostamiseen. Lain mukaan voimme tallentaa evästeitä laitteellesi, jos ne ovat ehdottoman välttämättömiä tämän sivuston toiminnan kannalta. Kaiken tyyppisiin evästeisiin tarvitsemme sinun lupasi. Voit milloin tahansa muuttaa tai peruuttaa suostumuksesi evästeilmoituksessa verkkosivustollamme.</p>
-                
-                <h3>Käyttämämme evästetyypit</h3>
-                
-                <h4>Välttämättömät evästeet</h4>
-                <p>Nämä evästeet ovat välttämättömiä verkkosivuston toiminnalle, eikä niitä voi kytkeä pois päältä järjestelmissämme. Ne asetetaan yleensä vain, kun käytät toimintoja, jotka muodostavat palvelupyyntöjä, kuten lomakkeiden lähettämistä tai tietosuoja-asetusten määrittämistä.</p>
-                
-                <h4>Suorituskyky- ja analytiikkaevästeet</h4>
-                <p>Näiden evästeiden avulla voimme laskea käyntimääriä ja liikennelähteitä, jotta voimme mitata ja parantaa sivustomme suorituskykyä. Ne auttavat meitä tietämään, mitkä sivut ovat suosituimpia ja vähiten suosittuja, ja näkemään, miten vierailijat liikkuvat sivustolla.</p>
-                
-                <h4>Kolmannen osapuolen evästeet</h4>
-                <p>Sivustomme käyttää seuraavia kolmannen osapuolen palveluita, jotka voivat asettaa evästeitä:</p>
-                
-                <div class="feature-card" style="text-align: left; margin: 1rem 0;">
-                    <h5>Google Fonts</h5>
-                    <p>Käytämme Google Fonts -palvelua verkkosivustomme typografian toteuttamiseen. Google voi kerätä käyttäjien IP-osoitteita ja muita tietoja fonttien lataamisen yhteydessä.</p>
-                    <p style="font-size: 0.85rem; color: var(--text-light);">Tarkoitus: Tekstisisällön näyttäminen</p>
-                </div>
-                
-                <div class="feature-card" style="text-align: left; margin: 1rem 0;">
-                    <h5>Formsubmit (Lomakkeiden käsittely)</h5>
-                    <p>Käytämme Formsubmit-palvelua yhteydenottolomakkeiden välittämiseen. Palvelu voi asettaa toiminnallisia evästeitä lomakkeiden turvallisen lähettämisen varmistamiseksi.</p>
-                    <p style="font-size: 0.85rem; color: var(--text-light);">Tarkoitus: Lomakkeiden toimivuus ja turvallisuus</p>
-                </div>
-                
-                <h3>Evästeiden hallinta</h3>
-                <p>Voit hallita ja/tai poistaa evästeet vapaasti halutessasi. Voit poistaa kaikki jo laitteellasi olevat evästeet ja useimmat selaimet mahdollistavat estää evästeiden tallentamisen. Jos kuitenkin estät evästeiden tallentamisen, sinun on ehkä määritettävä asetukset manuaalisesti joka kerta, kun vierailet sivustolla, ja jotkin palvelut ja toiminnot eivät välttämättä toimi oikein.</p>
-                
-                <p>Useimmat selaimet mahdollistavat evästeiden hallinnan seuraavasti:</p>
-                <ul>
-                    <li>Chrome: Asetukset → Tietosuoja ja turvallisuus → Evästeet ja muut sivustotiedot</li>
-                    <li>Firefox: Asetukset → Tietosuoja ja turvallisuus → Evästeet ja sivustotiedot</li>
-                    <li>Safari: Asetukset → Tietosuoja → Evästeet ja sivustotiedot</li>
-                    <li>Edge: Asetukset → Evästeet ja sivustotiedot → Hallitse ja poista evästeet</li>
-                </ul>
-                
-                <h3>Lisätietoja</h3>
-                <p>Lisätietoja siitä, keitä olemme, miten voit ottaa meihin yhteyttä ja miten käsittelemme henkilötietoja, löydät <a href="tietosuojaseloste.html">tietosuojaselosteestamme</a>.</p>
-                
-                <div class="animation-cta" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
-                    <p class="animation-cta-text">
-                        <a href="tietosuojaseloste.html">Siirry tietosuojaselosteeseen</a> | 
-                        <a href="https://sivutnopeasti.fi">Palaa etusivulle</a>
-                    </p>
-                </div>
-            </div>
+        <div class="content-card">
+            <h4>Formsubmit (Lomakkeiden käsittely)</h4>
+            <p>Käytämme Formsubmit-palvelua yhteydenottolomakkeiden välittämiseen. Palvelu voi asettaa toiminnallisia evästeitä lomakkeiden turvallisen lähettämisen varmistamiseksi.</p>
+            <p class="content-card-meta">Tarkoitus: Lomakkeiden toimivuus ja turvallisuus</p>
         </div>
-    </section>
 
-    <!--#include virtual="/partials/footer.html" -->
+        <h2>Evästeiden hallinta</h2>
+        <p>Voit hallita ja/tai poistaa evästeet vapaasti halutessasi. Voit poistaa kaikki jo laitteellasi olevat evästeet ja useimmat selaimet mahdollistavat estää evästeiden tallentamisen. Jos kuitenkin estät evästeiden tallentamisen, sinun on ehkä määritettävä asetukset manuaalisesti joka kerta, kun vierailet sivustolla, ja jotkin palvelut ja toiminnot eivät välttämättä toimi oikein.</p>
+
+        <p>Voit hallita evästeitä selaimesi asetuksista:</p>
+        <ul>
+            <li><strong>Chrome:</strong> Asetukset → Tietosuoja ja turvallisuus → Evästeet ja muut sivustotiedot</li>
+            <li><strong>Firefox:</strong> Asetukset → Tietosuoja ja turvallisuus → Evästeet ja sivustotiedot</li>
+            <li><strong>Safari:</strong> Asetukset → Tietosuoja → Evästeet ja sivustotiedot</li>
+            <li><strong>Edge:</strong> Asetukset → Evästeet ja sivustotiedot → Hallitse ja poista evästeet</li>
+        </ul>
+
+        <h2>Lisätietoja</h2>
+        <p>Lisätietoja siitä, keitä olemme, miten voit ottaa meihin yhteyttä ja miten käsittelemme henkilötietoja, löydät <a href="/tietosuojaseloste.html">tietosuojaselosteestamme</a>.</p>
+
+        <div class="content-footer-links">
+            <a href="/tietosuojaseloste.html">← Tietosuojaseloste</a>
+            <a href="/">Palaa etusivulle →</a>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/main.js"></script>
 
 </body>
 </html>
