@@ -1,3 +1,21 @@
+// Headers and footers
+async function loadPartial(id, file) {
+    const res = await fetch(file);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+}
+
+Promise.all([
+    loadPartial('header-placeholder', '/partials/header.html'),
+    loadPartial('footer-placeholder', '/partials/footer.html')
+]).then(() => {
+    initApp();
+});
+
+function initApp() {
+    // kaikki vanha koodi tähän sisälle
+}
+
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
