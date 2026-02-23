@@ -123,3 +123,22 @@ function initApp() {
     }
 
 }
+
+
+// Lue ?ref= parametri URL:sta ja tallenna
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('r'); // ← 'ref' → 'r'
+  if (ref) {
+    sessionStorage.setItem('r', ref);
+  }
+
+  const form = document.querySelector('.contact-form');
+  if (form) {
+    const hidden = document.createElement('input');
+    hidden.type = 'hidden';
+    hidden.name = 'Myyjä';
+    hidden.value = sessionStorage.getItem('r') || 'suora';
+    form.appendChild(hidden);
+  }
+})();
