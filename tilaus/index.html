@@ -367,11 +367,35 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Piilokentät kuva-URL:ille (ImgBB-lataus täyttää nämä ennen lähetystä) -->
+                <input type="hidden" name="kuvat_urlit" id="kuvat-urlit-hidden">
+                <input type="hidden" name="logo_url" id="logo-url-hidden">
             </form>
         </div>
     </div>
 
     <script>
+        // ImgBB API-avain (injektoitu GitHub Actionsin kautta)
+        const IMGBB_API_KEY = '%%PIC_API%%';
+
+        async function uploadToImgBB(file) {
+            const formData = new FormData();
+            formData.append('image', file);
+            try {
+                const resp = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
+                    method: 'POST',
+                    body: formData,
+                });
+                const data = await resp.json();
+                if (data.success) return data.data.url;
+                console.error('ImgBB-virhe:', data.error?.message);
+            } catch (err) {
+                console.error('Kuvan lataus epäonnistui:', err);
+            }
+            return null;
+        }
+
         // Laajennettu fonttikokoelma (10+ per tyyli)
         const fontit = {
             klassinen: [
@@ -983,8 +1007,10 @@
             handleFiles(e.target.files);
         });
 
-        // Form submission - korvaa tiedostot pakatuilla
-        document.getElementById('tilausForm').addEventListener('submit', function(e) {
+        // Form submission - lataa kuvat ImgBB:hen ja lähetä lomake
+        document.getElementById('tilausForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
             // Validoi step 5:n pakolliset kentät
             const palvelut = document.getElementById('palvelut');
             const paketti = document.getElementById('paketti');
@@ -1006,31 +1032,40 @@
                 paketti.classList.remove('error');
             }
 
-            if (!valid) {
-                e.preventDefault();
-                return;
-            }
+            if (!valid) return;
 
             document.getElementById('loadingOverlay').classList.add('show');
             document.getElementById('submitBtn').disabled = true;
 
-            // Korvaa logo pakatulla versiolla
+            // Lataa logo ImgBB:hen
             if (logoFile) {
-                const logoInput = document.getElementById('logoInput');
-                const dt = new DataTransfer();
-                dt.items.add(logoFile);
-                logoInput.files = dt.files;
+                document.getElementById('loadingText').textContent = 'Ladataan logoa...';
+                const logoUrl = await uploadToImgBB(logoFile);
+                if (logoUrl) {
+                    document.getElementById('logo-url-hidden').value = logoUrl;
+                    console.log('Logo ladattu:', logoUrl);
+                }
+                // Tyhjennä tiedostokenttä – URL riittää
+                document.getElementById('logoInput').value = '';
             }
-            
-            // Korvaa kuvat pakatuilla versioilla
+
+            // Lataa kuvat ImgBB:hen
             if (selectedFiles.length > 0) {
-                const fileInput = document.getElementById('fileInput');
-                const dt = new DataTransfer();
-                selectedFiles.forEach(file => dt.items.add(file));
-                fileInput.files = dt.files;
+                const uploadedUrls = [];
+                for (let i = 0; i < selectedFiles.length; i++) {
+                    document.getElementById('loadingText').textContent =
+                        `Ladataan kuvaa ${i + 1} / ${selectedFiles.length}...`;
+                    const url = await uploadToImgBB(selectedFiles[i]);
+                    if (url) uploadedUrls.push(url);
+                }
+                document.getElementById('kuvat-urlit-hidden').value = uploadedUrls.join(',');
+                console.log('Kuvat ladattu:', uploadedUrls.length);
+                // Tyhjennä tiedostokenttä – URL:it riittävät
+                document.getElementById('fileInput').value = '';
             }
-            
+
             document.getElementById('loadingText').textContent = 'Lähetetään tilausta...';
+            this.submit();
         });
 
         // Hinnasto – vaihda teksti/tiedosto
